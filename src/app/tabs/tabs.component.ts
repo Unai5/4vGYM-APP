@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './tabs.component.css'
 })
 export class TabsComponent {
-
+  title = '4V GYM';
 }
