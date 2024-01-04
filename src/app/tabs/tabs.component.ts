@@ -11,10 +11,12 @@ import { CommonModule } from '@angular/common';
 })
 export class TabsComponent {
 
-  activeTab: string = '';
+  activeTab: string = 'actividades';
 
+
+  
   selectTab(tab: string): void {
     this.activeTab = tab;
   }
-  
+
 }
