@@ -1,0 +1,10 @@
+.nav-tabs .nav-item.active-tab .nav-link {
+    border-top: 2px solid orange;
+}
+.nav-tabs{
+    width: 100%;
+    text-align: center;
+}
+
+
+

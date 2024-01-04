@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-tabs',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tabs.component.html',
   styleUrl: './tabs.component.css'
 })
 export class TabsComponent {
-  title = '4V GYM';
+
+  activeTab: string = '';
+
+  selectTab(tab: string): void {
+    this.activeTab = tab;
+  }
+  
 }
