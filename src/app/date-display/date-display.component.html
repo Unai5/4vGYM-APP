@@ -1,16 +1,16 @@
 <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <button id="btnLastDay" type="button" class="btn btn-primary" (click)="goBack()">
-          <img src="../../assets/img/flechaAtras.png" alt="Flecha de retroceder.">
+        <button id="btnLastDay" type="button" class="btn" (click)="goBack()">
+          <img src="../../assets/img/flechaAtras.png" class="flecha" alt="Flecha de retroceder.">
         </button>
       </div>
-      <div class="col-md-6">
-        {{ selectedDate | date: 'medium' }}
+      <div class="col-md-6 mt-3">
+        {{ formatSpanishDate(selectedDate) }}
       </div>
       <div class="col-md-3">
-        <button id="btnNextDay" type="button" class="btn btn-primary" (click)="advance()">
-          <img src="../../assets/img/flechaAdelante.png" alt="Flecha de avanzar.">
+        <button id="btnNextDay" type="button" class="btn" (click)="advance()">
+          <img src="../../assets/img/flechaAdelante.png" class="flecha" alt="Flecha de avanzar.">
         </button>
       </div>
     </div>

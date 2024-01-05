@@ -15,6 +15,8 @@ export class DateDisplayComponent {
   @Output() dateBack = new EventEmitter<void>();
   @Output() dateAdvance = new EventEmitter<void>();
 
+  @Output() dateChangedByButton = new EventEmitter<Date>();
+
   goBack(): void {
     this.dateBack.emit();
   }
@@ -22,4 +24,14 @@ export class DateDisplayComponent {
   advance(): void {
     this.dateAdvance.emit();
   }
+
+  formatSpanishDate(date: Date): string {
+    const options: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    };
+    return new Intl.DateTimeFormat('es-ES', options).format(date);
+  }
+
 }

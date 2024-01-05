@@ -16,6 +16,12 @@ import { CustomDateAdapter } from './CustomDateAdapter';
 })
 export class CalendarComponent {
   selectedDate: Date = new Date();
+
   @Output() dateChanged = new EventEmitter<Date>();
+
+  onDateChangedByButton(newDate: Date): void {
+    this.selectedDate = newDate;
+    this.dateChanged.emit(newDate);
+  }
 }
 

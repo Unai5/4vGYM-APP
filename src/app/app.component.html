@@ -3,9 +3,20 @@
     <app-header></app-header>
 </header>
 
-<section id="activities">
-    <app-calendar (dateChanged)="selectedDate = $event"></app-calendar>
-    <app-date-display [selectedDate]="selectedDate" (dateBack)="goBack()" (dateAdvance)="advance()"></app-date-display>
+<section id="activities" class="mt-4">
+    <div class="row">
+        <div class="col-md-3 col-12">
+            <app-calendar (dateChanged)="selectedDate = $event"></app-calendar>
+        </div>
+        <div class="col-md-5 col-12 mt-4 text-center">
+            <app-date-display [selectedDate]="selectedDate" 
+                              (dateBack)="goBack()" 
+                              (dateAdvance)="advance()" 
+                              (dateChangedByButton)="onDateChangedByButton($event)">
+            </app-date-display>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
 </section>
 
 

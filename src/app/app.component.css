@@ -6,3 +6,12 @@
     background-color: #fff;
     border-top: 1px solid #ddd;
 }
+
+#activities{
+    font-family: General;
+}
+
+@font-face {
+    font-family: 'General';
+    src: url(../assets/fonts/RobotoMono-Regular.ttf);
+}
