@@ -6,7 +6,7 @@ import { IActivityType } from './activity-type-service.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ActivityServiceService {
+export class ActivityService {
  activities: IActivity[] = [
     {
       type: {
@@ -27,8 +27,8 @@ export class ActivityServiceService {
            telephone: '222222222'
           }
         ],
-      dateStart: new Date('2019-01-01T08:00:00'),
-      dateEnd: new Date('2019-01-01T09:00:00')
+      dateStart: new Date('2024-01-11T13:30:00'),
+      dateEnd: new Date('2024-01-11T15:00:00')
     },
     {
       type: {
@@ -49,8 +49,8 @@ export class ActivityServiceService {
            telephone: '222222222'
           }
         ],
-      dateStart: new Date('2019-01-01T09:00:00'),
-      dateEnd: new Date('2019-01-01T10:00:00')
+      dateStart: new Date('2024-01-11T10:00:00'),
+      dateEnd: new Date('2024-01-11T11:30:00')
     },
     {
       type: {
@@ -71,8 +71,8 @@ export class ActivityServiceService {
            telephone: '222222222'
           }
         ],
-      dateStart: new Date('2019-01-01T11:00:00'),
-      dateEnd: new Date('2019-01-01T12:00:00')
+      dateStart: new Date('2024-01-12T10:00:00'),
+      dateEnd: new Date('2024-01-12T11:30:00')
     },
     {
       type: {
@@ -93,11 +93,13 @@ export class ActivityServiceService {
            telephone: '222222222'
           }
         ],
-      dateStart: new Date('2019-01-01T12:00:00'),
-      dateEnd: new Date('2019-01-01T13:00:00')
+      dateStart: new Date('2024-01-12T17:30:00'),
+      dateEnd: new Date('2024-01-12T19:00:00')
     }];
 
-  
+  public getActivities(): IActivity[] {
+    return this.activities;
+  }
   constructor() {}
 }
 

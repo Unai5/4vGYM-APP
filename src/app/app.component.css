@@ -15,3 +15,7 @@
     font-family: 'General';
     src: url(../assets/fonts/RobotoMono-Regular.ttf);
 }
+
+.roww{
+    border: solid black .2rem;  
+}
