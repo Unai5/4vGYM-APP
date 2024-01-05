@@ -1,4 +1,15 @@
 
-<app-header></app-header>
+<header>
+    <app-header></app-header>
+</header>
 
-<app-tabs id="footerTabs"></app-tabs>
+<section id="activities">
+    <app-calendar (dateChanged)="selectedDate = $event"></app-calendar>
+    <app-date-display [selectedDate]="selectedDate" (dateBack)="goBack()" (dateAdvance)="advance()"></app-date-display>
+</section>
+
+
+
+<footer>
+    <app-tabs id="footerTabs"></app-tabs>
+</footer>
