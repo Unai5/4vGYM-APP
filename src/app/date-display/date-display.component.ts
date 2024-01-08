@@ -15,14 +15,16 @@ export class DateDisplayComponent {
   @Output() dateBack = new EventEmitter<void>();
   @Output() dateAdvance = new EventEmitter<void>();
 
-  @Output() dateChangedByButton = new EventEmitter<Date>();
+  @Output() dateChanged = new EventEmitter<Date>();
 
   goBack(): void {
     this.dateBack.emit();
+    this.emitDateChange();
   }
 
   advance(): void {
     this.dateAdvance.emit();
+    this.emitDateChange();
   }
 
   formatSpanishDate(date: Date): string {
@@ -33,5 +35,10 @@ export class DateDisplayComponent {
     };
     return new Intl.DateTimeFormat('es-ES', options).format(date);
   }
+
+  private emitDateChange(): void {
+    this.dateChanged.emit(this.selectedDate);
+  }
+
 
 }

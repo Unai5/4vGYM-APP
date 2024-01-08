@@ -100,6 +100,16 @@ export class ActivityService {
   public getActivities(): IActivity[] {
     return this.activities;
   }
+
+  getActivitiesForDate(date: Date): IActivity[] {
+    return this.activities.filter(activity => {
+      const activityStartDate = activity.dateStart;
+      const activityEndDate = activity.dateEnd;
+
+      return date >= activityStartDate && date < activityEndDate;
+    });
+  }
+
   constructor() {}
 }
 
