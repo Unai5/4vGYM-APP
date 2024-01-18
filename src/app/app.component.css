@@ -1,0 +1,21 @@
+#footerTabs{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    z-index: 100;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+#activities{
+    font-family: General;
+}
+
+@font-face {
+    font-family: 'General';
+    src: url(../assets/fonts/RobotoMono-Regular.ttf);
+}
+
+.roww{
+    border: solid black .2rem;  
+}
