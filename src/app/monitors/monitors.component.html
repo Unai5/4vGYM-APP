@@ -11,11 +11,12 @@
 <div *ngIf="isModalOpen" class="custom-modal">
     <div class="modal-overlay"></div>
     <div class="modal-content">
-        <form (submit)="addMonitor()">
+        <form (submit)="addOrUpdateMonitor()">
             <div class="modal-header">
                 <i class="fa-solid fa-user-plus"></i>
             </div>
             <div class="modal-body">
+                <img src="/src/assets/img/avatar.png" alt="Descripción de la imagen">
                 <label for="newNombre">Name:</label>
                 <input type="text" [(ngModel)]="newMonitor.nombre" id="newNombre" name="newNombre">
 
@@ -46,6 +47,7 @@
             <i class="fa-solid fa-user"></i>
         </div>
         <div class="info-container">
+            <img src="/src/assets/img/avatar.png" alt="Descripción de la imagen">
             <div class="name">{{ monitor.nombre }}</div>
             <div class="email"><a href="mailto:{{ monitor.email }}">{{ monitor.email }}</a></div>
             <div class="phone"><a href="tel:+34{{ monitor.telefono }}">{{ monitor.telefono }}</a></div>

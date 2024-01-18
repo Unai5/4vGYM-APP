@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'; // Import the Component decorator
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
@@ -9,12 +9,15 @@ import { IActivity } from './activity-service.service';
 import { ActivityService } from './activity-service.service';
 import { CasillaActividadComponent } from './casilla-actividad/casilla-actividad.component';
 import { CasillaVaciaComponent } from './casilla-vacia/casilla-vacia.component';
+import { MonitorsComponent } from './monitors/monitors.component';
+import 'tslib';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ CasillaVaciaComponent, CasillaActividadComponent, CommonModule, RouterOutlet, HeaderComponent, TabsComponent, CalendarComponent, DateDisplayComponent],
+  imports: [CasillaVaciaComponent, CasillaActividadComponent, CommonModule, RouterOutlet, HeaderComponent, TabsComponent, CalendarComponent, DateDisplayComponent, MonitorsComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css', 
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   selectedDate: Date = new Date();
