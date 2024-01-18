@@ -1,0 +1,77 @@
+.search-container, .add-container, .monitor-container, .no-monitors-message {
+    margin: 10px;
+}
+
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.modal-header {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 24px;
+}
+
+.modal-body {
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.monitor-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.edit-btn, .delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.user-icon {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.info-container {
+    text-align: center;
+}
+
+.error-text {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}

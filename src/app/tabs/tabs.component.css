@@ -1,0 +1,15 @@
+.nav-tabs .nav-item.active-tab .nav-link {
+    border-top: 2px solid orange; /* Borde superior naranja */
+    color: orange; /* Color del texto naranja */
+}
+.nav-tabs{
+    width: 100%;
+    text-align: center;
+}
+.nav-link{
+    color: black;
+    text-decoration: none;
+}
+
+
+
