@@ -1,7 +1,8 @@
 <div class="row">
     <!--Calendario a continuación: -->
     <div class="col-md-4 col-12">
-        <app-calendar (dateChanged)="selectedDate = $event"></app-calendar>
+      <app-calendar (dateChanged)="selectedDate = $event; updateActivities(); ifDateIsChanged();"></app-calendar>
+
     </div>
     
 
@@ -10,30 +11,57 @@
       <div class="row">
         <app-date-display [selectedDate]="selectedDate" (selectedChanged)="ifDateIsChanged()" (dateBack)="goBack()" (dateAdvance)="advance()"></app-date-display>
       </div>
-      <!-- Bloques de actividades con ngFor y ngIf. -->
       
-      <div class="row" *ngFor="let index of [0, 1, 2]">
+      <div class="row">
         <div class="col-2 mt-4">
-          <div class="row">{{ hourBlocks[index].start | date: 'shortTime' }}</div>
-          <div class="row">{{ hourBlocks[index].end | date: 'shortTime' }}</div>
+          <div class="row">10:00 AM</div>
+          <div class="row">11:30 AM</div>
         </div>
         <div class="col-9">
-          <ng-container *ngIf="mostrarCasilla[index]; else casillaVacia">
-            <app-casilla-actividad></app-casilla-actividad>
+          <ng-container *ngIf="mostrarCasilla[0]; else casillaVacia">
+            <app-casilla-actividad [actividad]="activity1"></app-casilla-actividad>
           </ng-container>
           <ng-template #casillaVacia>
-            <app-casilla-actividad></app-casilla-actividad>
+            <app-casilla-vacia></app-casilla-vacia>
           </ng-template>
           
         </div> 
         <div class="col-1"></div>
       </div>
 
-      <!-- <div class="row" *ngFor="let i of [0, 1, 2]; let index = index">
-        <div *ngIf="mostrarEtiqueta[index]">
-          Contenido de la etiqueta {{ index + 1 }}
+      <div class="row">
+        <div class="col-2 mt-4">
+          <div class="row">1:30 PM</div>
+          <div class="row">3:00 PM</div>
         </div>
-      </div> -->
+        <div class="col-9">
+          <ng-container *ngIf="mostrarCasilla[1]; else casillaVacia">
+            <app-casilla-actividad [actividad]="activity2"></app-casilla-actividad>
+          </ng-container>
+          <ng-template #casillaVacia>
+            <app-casilla-vacia></app-casilla-vacia>
+          </ng-template>
+          
+        </div> 
+        <div class="col-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 mt-4">
+          <div class="row">5:30 PM</div>
+          <div class="row">7:00 PM</div>
+        </div>
+        <div class="col-9">
+          <ng-container *ngIf="mostrarCasilla[2]; else casillaVacia">
+            <app-casilla-actividad [actividad]="activity3"></app-casilla-actividad>
+          </ng-container>
+          <ng-template #casillaVacia>
+            <app-casilla-vacia></app-casilla-vacia>
+          </ng-template>
+          
+        </div> 
+        <div class="col-1"></div>
+      </div>
 
     </div>
     <div class="col-md-4"></div>

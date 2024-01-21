@@ -1,19 +1,43 @@
 <div class="container">
     <div class="row mt-3 bg-light">
+      <!-- Monitor 1 -->
+      <div class="col-3 text-warning-emphasis" *ngIf="monitors && monitors.length > 0; else noMonitors">
+        <div class="row"><img src="../../assets/img/avatar.png" alt="Foto del avatar" class="avatar-img"></div>
+        <div class="row ms-1">{{ monitors[0].name }}</div>
+      </div>
+      <ng-template #noMonitors>
         <div class="col-3"></div>
+      </ng-template>
+  
+      <!-- Monitor 2 -->
+      <div class="col-3 text-warning-emphasis" *ngIf="monitors && monitors.length > 1; else oneMonitor">
+        <div class="row"><img src="../../assets/img/avatar.png" alt="Foto del avatar" class="avatar-img"></div>
+        <div class="row ms-1">{{ monitors[1].name }}</div>
+      </div>
+      <ng-template #oneMonitor>
         <div class="col-3"></div>
-        <div class="col-3"></div>
-        <div class="col-3">
-            <div class="row">
-                <button id="btnDelete" type="button" class="btn" (click)="delete()">
-                    <img src="../../assets/img/papelera.png" alt="Eliminar actividad">
-                </button>
-            </div>
-            <div class="row">
-                <button id="btnModify" type="button" class="btn" (click)="modify()">
-                  <img src="../../assets/img/lapiz.png" alt="Modificar actividad">
-                </button>
-            </div>
+      </ng-template>
+  
+      <!-- Imagen del tipo de actividad -->
+      <div class="col-3">
+        <div class="row" *ngIf="type == 'BodyPump' || type == 'Pilates' || type == 'Spinning'">
+          <img src="../../assets/img/{{ type }}.png" alt="Foto de la actividad">
         </div>
+      </div>
+  
+      <!-- Botones de editar o eliminar -->
+      <div class="col-3">
+        <div class="row">
+          <button id="btnDelete" type="button" class="btn" (click)="delete()">
+            <img src="../../assets/img/papelera.png" alt="Eliminar actividad">
+          </button>
+        </div>
+        <div class="row">
+          <button id="btnModify" type="button" class="btn" (click)="modify()">
+            <img src="../../assets/img/lapiz.png" alt="Modificar actividad">
+          </button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  
