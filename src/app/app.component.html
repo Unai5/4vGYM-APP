@@ -1,0 +1,15 @@
+<header>
+    <app-header></app-header>
+</header>
+
+<section id="activities" class="mt-4" [hidden]="activeTab !== 'actividades'">
+    <app-activities></app-activities>
+</section>
+
+<section [hidden]="activeTab !== 'monitores'">
+    <app-monitors></app-monitors>
+</section>
+
+<footer>
+    <app-tabs id="footerTabs"></app-tabs>
+</footer>

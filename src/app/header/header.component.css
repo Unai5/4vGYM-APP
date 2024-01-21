@@ -1,0 +1,13 @@
+header {
+    background-color: #D9D9D9;
+}
+
+h1 {
+    color: #D35D5D;
+    font-weight: 350;
+    font-size: 26px;
+}
+img {
+    max-width: 80px;
+    max-height: 80px;
+}
