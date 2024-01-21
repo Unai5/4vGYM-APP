@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GlobalServiceService, Monitor } from '../utils/global-service.service';
 import { CarouselModule } from 'primeng/carousel';
+import { __importDefault } from 'tslib'; // Import the tslib module
 
 @Component({
   selector: 'app-monitors',
   imports: [CommonModule, CarouselModule, FormsModule],
   templateUrl: './monitors.component.html',
-  styleUrl: './monitors.component.scss'
+  styleUrls: ['./monitors.component.scss'],
+  standalone: true
 })
+
+
 export class MonitorsComponent implements OnInit {
   monitors: Monitor[] = [];
   numVisible: number = 3;
