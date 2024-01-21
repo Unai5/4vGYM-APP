@@ -21,6 +21,8 @@ export class ActivitiesComponent {
     this.updateActivities();
   }
 
+  actComponent: ActivitiesComponent = this;
+
   mostrarCasilla: boolean[] = [false, false, false]; 
 
   hour1: string = '10:00';

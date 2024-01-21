@@ -21,4 +21,5 @@ import { MonitorsComponent } from './monitors/monitors.component';
 })
 export class AppComponent {
   constructor() {}
+  activeTab: string = 'actividades';
 }

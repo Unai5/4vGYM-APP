@@ -9,6 +9,7 @@ import { IActivityType } from './activity-type-service.service';
 export class ActivityService {
  activities: IActivity[] = [
     {
+      id: 1,
       type: {
         name: 'BodyPump',
         numberOfMonitors: 1
@@ -24,6 +25,7 @@ export class ActivityService {
         date: "11/1/2024, 13:30:00",
     },
     {
+      id: 2,
       type: {
         name: 'Pilates',
         numberOfMonitors: 2
@@ -45,6 +47,7 @@ export class ActivityService {
         date: "11/1/2024, 10:00:00",
     },
     {
+      id: 3,
       type: {
         name: 'Spinning',
         numberOfMonitors: 2
@@ -66,6 +69,7 @@ export class ActivityService {
         date: "12/1/2024, 10:00:00",
     },
     {
+      id: 4,
       type: {
         name: 'Pilates',
         numberOfMonitors: 2
@@ -91,6 +95,10 @@ export class ActivityService {
     return this.activities;
   }
 
+  removeActivity(id: number) {
+    this.activities = this.activities.filter(activity => activity.id !== id);
+  }
+
   constructor() {}
 }
 
@@ -98,5 +106,6 @@ export interface IActivity {
   type: IActivityType;
   monitors: IMonitor[];
   date: string;
+  id?: number;
 }
 

@@ -19,7 +19,7 @@
         </div>
         <div class="col-9">
           <ng-container *ngIf="mostrarCasilla[0]; else casillaVacia">
-            <app-casilla-actividad [actividad]="activity1"></app-casilla-actividad>
+            <app-casilla-actividad [actividad]="activity1" [activitiesComponent]="actComponent"></app-casilla-actividad>
           </ng-container>
           <ng-template #casillaVacia>
             <app-casilla-vacia></app-casilla-vacia>
@@ -36,7 +36,7 @@
         </div>
         <div class="col-9">
           <ng-container *ngIf="mostrarCasilla[1]; else casillaVacia">
-            <app-casilla-actividad [actividad]="activity2"></app-casilla-actividad>
+            <app-casilla-actividad [actividad]="activity2" [activitiesComponent]="actComponent"></app-casilla-actividad>
           </ng-container>
           <ng-template #casillaVacia>
             <app-casilla-vacia></app-casilla-vacia>
@@ -53,7 +53,7 @@
         </div>
         <div class="col-9">
           <ng-container *ngIf="mostrarCasilla[2]; else casillaVacia">
-            <app-casilla-actividad [actividad]="activity3"></app-casilla-actividad>
+            <app-casilla-actividad [actividad]="activity3" [activitiesComponent]="actComponent"></app-casilla-actividad>
           </ng-container>
           <ng-template #casillaVacia>
             <app-casilla-vacia></app-casilla-vacia>
