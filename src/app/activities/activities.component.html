@@ -22,7 +22,7 @@
             <app-casilla-actividad [actividad]="activity1" [activitiesComponent]="actComponent"></app-casilla-actividad>
           </ng-container>
           <ng-template #casillaVacia>
-            <app-casilla-vacia></app-casilla-vacia>
+            <app-casilla-vacia [cuadroId]="1" (abrirFormularioEvent)="abrirFormularioDesdeCasilla($event)"></app-casilla-vacia>
           </ng-template>
           
         </div> 
@@ -39,7 +39,7 @@
             <app-casilla-actividad [actividad]="activity2" [activitiesComponent]="actComponent"></app-casilla-actividad>
           </ng-container>
           <ng-template #casillaVacia>
-            <app-casilla-vacia></app-casilla-vacia>
+            <app-casilla-vacia [cuadroId]="2" (abrirFormularioEvent)="abrirFormularioDesdeCasilla($event)"></app-casilla-vacia>
           </ng-template>
           
         </div> 
@@ -56,7 +56,7 @@
             <app-casilla-actividad [actividad]="activity3" [activitiesComponent]="actComponent"></app-casilla-actividad>
           </ng-container>
           <ng-template #casillaVacia>
-            <app-casilla-vacia></app-casilla-vacia>
+            <app-casilla-vacia [cuadroId]="3" (abrirFormularioEvent)="abrirFormularioDesdeCasilla($event)"></app-casilla-vacia>
           </ng-template>
           
         </div> 
@@ -66,3 +66,37 @@
     </div>
     <div class="col-md-4"></div>
 </div>
+
+<form id="dataForm" *ngIf="mostrarFormulario" class="border rounded p-3 form-inline" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="activityType" class="form-label">Tipo de Actividad</label>
+    <select class="form-select" id="activityType" name="activityType" [(ngModel)]="selectedActivityType">
+      <option *ngFor="let activityType of activityTypes" [value]="activityType">{{ activityType.name }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="monitor1" class="form-label">Monitor 1</label>
+    <select class="form-select" id="monitor1" name="monitor1" [(ngModel)]="selectedMonitor1">
+      <option *ngFor="let monitor of monitors" [value]="monitor.id">{{ monitor.name }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="monitor2" class="form-label">Monitor 2</label>
+    <select class="form-select" id="monitor2" name="monitor2" [(ngModel)]="selectedMonitor2">
+      <option>Ninguno</option>
+      <option *ngFor="let monitor of monitors" [value]="monitor.id">{{ monitor.name }}</option>
+    </select>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <button type="submit" class="btn btn-primary col-3">Enviar</button>
+    <div class="col-2"></div>
+    <button type="button" class="btn btn-secondary col-3" (click)="cancelar()">Cancelar</button>
+    <div class="col-2"></div>
+  </div>
+</form>
+
+
+

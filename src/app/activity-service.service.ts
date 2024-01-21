@@ -98,6 +98,11 @@ export class ActivityService {
     this.activities = this.activities.filter(activity => activity.id !== id);
   }
   constructor() {}
+
+  public addActivity(activity: IActivity) {
+    this.activities.push(activity);
+  }
+
 }
 
 export interface IActivity {
@@ -106,4 +111,5 @@ export interface IActivity {
   date: string;
   id?: number;
 }
+
 

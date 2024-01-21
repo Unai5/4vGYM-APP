@@ -7,22 +7,34 @@ import { CasillaVaciaComponent } from '../casilla-vacia/casilla-vacia.component'
 import { CalendarComponent } from '../calendar/calendar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivityTypeServiceService, IActivityType } from '../activity-type-service.service';
+import { IMonitor, MonitorsServiceService } from '../monitors-service.service';
 @Component({
   selector: 'app-activities',
   standalone: true,
-  imports: [CommonModule, FormsModule, CasillaActividadComponent, DateDisplayComponent, CasillaVaciaComponent, CalendarComponent],
+  imports: [ CommonModule, FormsModule, CasillaActividadComponent, DateDisplayComponent, CasillaVaciaComponent, CalendarComponent],
   templateUrl: './activities.component.html',
   styleUrl: './activities.component.css'
 })
 
 export class ActivitiesComponent {
+  cuadroSeleccionadoId: number | undefined;
+  mostrarFormulario: boolean = false;
 
-  constructor(private activityService: ActivityService) { 
+  constructor(private activityService: ActivityService, private activityTypeService: ActivityTypeServiceService, private monitorsService: MonitorsServiceService) { 
     this.updateActivities();
   }
 
   actComponent: ActivitiesComponent = this;
   mostrarCasilla: boolean[] = [false, false, false]; 
+
+  activityTypes = this.activityTypeService.getActivityTypes();
+  selectedActivityType: IActivityType | undefined;
+
+  monitors = this.monitorsService.getMonitors();
+  selectedMonitor1: IMonitor| undefined;
+  selectedMonitor2: IMonitor| undefined;
+
 
   hour1: string = '10:00';
   hour2: string = '13:30';
@@ -80,5 +92,58 @@ export class ActivitiesComponent {
     newDate.setHours(Number(startHourHours), Number(startHourMinutes), 0);
     return newDate;
   }
+
+  abrirFormularioDesdeCasilla(cuadroId: number) {
+    this.mostrarFormulario = true;
+    this.cuadroSeleccionadoId = cuadroId;
+  }
+
+  onSubmit() {
+    console.log('Tipo de Actividad:', this.selectedActivityType);
+    console.log('Monitor 1:', this.selectedMonitor1);
+    console.log('Monitor 2:', this.selectedMonitor2);
+
+    var newDate: Date = this.selectedDate;
+    if (this.cuadroSeleccionadoId == 1) {
+      newDate.setHours(10,0,0)
+    } else if (this.cuadroSeleccionadoId == 2) {
+      newDate.setHours(13,30,0)
+    } else if (this.cuadroSeleccionadoId == 3) {
+      newDate.setHours(17,30,0)
+    }
+    var monitors: IMonitor[] = [];
+    if (this.selectedActivityType != undefined) {
+      if (this.selectedActivityType.numberOfMonitors == 1) {
+        if (this.selectedMonitor1 != undefined && this.selectedMonitor2 == undefined) {
+          this.selectedMonitor1.name = (this.selectedMonitor1.name);
+          monitors.push(this.selectedMonitor1);
+        } else {
+          alert('La actividad seleccionada requiere 1 monitor.');
+          return;
+        }
+      } else {
+        if (this.selectedMonitor1 != undefined && this.selectedMonitor2 != undefined) {
+          monitors.push(this.selectedMonitor1);
+          monitors.push(this.selectedMonitor2);
+        } else {
+          alert('La actividad seleccionada requiere 2 monitores.');
+          return;
+        }
+      }
+    } else {
+      alert('Selecciona un tipo de actividad');
+      return;
+    }
+    var activity: IActivity = { type: this.selectedActivityType, monitors: monitors, date: newDate.toLocaleString()};
+    this.activityService.addActivity(activity);
+    this.updateActivities();
+    this.cancelar();
+    alert('Actividad añadida correctamente.');
+  }
+
+  cancelar(): void {
+    this.mostrarFormulario = false;
+  }
+  
 
 }

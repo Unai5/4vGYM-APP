@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-casilla-vacia',
@@ -8,8 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './casilla-vacia.component.css'
 })
 export class CasillaVaciaComponent {
+  @Input() cuadroId: number | undefined;
+  @Output() abrirFormularioEvent = new EventEmitter<number>();
   public add(): void{
-
+    this.abrirFormularioEvent.emit(this.cuadroId);
   }
 }
     
