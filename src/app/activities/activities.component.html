@@ -1,0 +1,40 @@
+<div class="row">
+    <!--Calendario a continuación: -->
+    <div class="col-md-4 col-12">
+        <app-calendar (dateChanged)="selectedDate = $event"></app-calendar>
+    </div>
+    
+
+    <div class="col-md-5 col-12 mt-5 text-center">
+      <!-- DatePicker con flechas para avanzar y retroceder días. -->
+      <div class="row">
+        <app-date-display [selectedDate]="selectedDate" (selectedChanged)="ifDateIsChanged()" (dateBack)="goBack()" (dateAdvance)="advance()"></app-date-display>
+      </div>
+      <!-- Bloques de actividades con ngFor y ngIf. -->
+      
+      <div class="row" *ngFor="let index of [0, 1, 2]">
+        <div class="col-2 mt-4">
+          <div class="row">{{ hourBlocks[index].start | date: 'shortTime' }}</div>
+          <div class="row">{{ hourBlocks[index].end | date: 'shortTime' }}</div>
+        </div>
+        <div class="col-9">
+          <ng-container *ngIf="mostrarCasilla[index]; else casillaVacia">
+            <app-casilla-actividad></app-casilla-actividad>
+          </ng-container>
+          <ng-template #casillaVacia>
+            <app-casilla-actividad></app-casilla-actividad>
+          </ng-template>
+          
+        </div> 
+        <div class="col-1"></div>
+      </div>
+
+      <!-- <div class="row" *ngFor="let i of [0, 1, 2]; let index = index">
+        <div *ngIf="mostrarEtiqueta[index]">
+          Contenido de la etiqueta {{ index + 1 }}
+        </div>
+      </div> -->
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
