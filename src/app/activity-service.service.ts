@@ -94,11 +94,9 @@ export class ActivityService {
   public getActivities(): IActivity[] {
     return this.activities;
   }
-
   removeActivity(id: number) {
     this.activities = this.activities.filter(activity => activity.id !== id);
   }
-
   constructor() {}
 }
 

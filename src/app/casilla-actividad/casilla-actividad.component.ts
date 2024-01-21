@@ -11,7 +11,6 @@ import { ActivitiesComponent } from '../activities/activities.component';
   styleUrl: './casilla-actividad.component.css'
 })
 export class CasillaActividadComponent {
-
   constructor(private activityService: ActivityService) { }
 
   public delete(): void{
