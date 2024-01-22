@@ -1,0 +1,243 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Search Container Styles */
+.search-container {
+    margin: 20px auto; /* Auto margin for centering */
+    padding: 10px;
+    text-align: center; /* Para centrar el contenido del contenedor */
+}
+.search-container input[type="text"] {
+    padding: 10px;
+    width: 550px; /* Ajusta este valor según tus necesidades */
+    background-color: #D9D9D9;
+    border: 1px solid #D25B5B;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
+.search-container button {
+    padding: 10px;
+    background-color: #D25B5B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Add Container Styles */
+.add-container {
+    margin-bottom: 20px;
+}
+
+.add-container button {
+    padding: 10px;
+    background-color: #D25B5B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header i {
+    color:#D25B5B;
+    font-size: 24px;
+}
+
+.modal-body {
+    margin-bottom: 20px;
+}
+
+.modal-body label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-footer button {
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #D25B5B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.cancel-btn {
+    background-color: #D25B5B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Monitor Card Styles */
+.monitor-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.monitor-card {
+    background-color: #D9D9D9; /* Cambia el color de fondo a gris claro */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+
+.delete-btn,
+.user-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.edit-btn i,
+.delete-btn i,
+.user-icon i {
+    font-size: 18px;
+    color: #333;
+}
+
+.edit-btn {
+    margin-right: 30px;
+}
+
+.delete-btn {
+    margin-right: 60px;
+}
+
+/* Info Container Styles */
+.info-container {
+    margin-top: 20px;
+    text-align: center; /* Centra el contenido del info-container */
+}
+
+.info-container img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    margin-bottom: 10px; /* Añade un margen inferior para separar la imagen del texto */
+}
+
+.name,
+.email,
+.phone {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* No Monitors Message Styles */
+.no-monitors-message {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.error-text {
+    font-size: 24px;
+    color: #D25B5B;
+}
+
+.add-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end; /* Esto alinea el contenido a la derecha del contenedor */
+    align-items: center; /* Esto alinea verticalmente el contenido al centro */
+}
+
+.add-container img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    margin-right: 10px; /* Puedes ajustar este valor según sea necesario */
+}
+
+/* Estilo del carrusel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Estilo de las tarjetas del carrusel */
+.carousel-cards {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    flex: 0 0 33.33%;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Estilo de las flechas del carrusel */
+.carousel-controls {
+    position: absolute;
+    top: 50%; /* Centra verticalmente las flechas en relación con el contenedor */
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.carousel-control {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.carousel-control img {
+    width: 50px; /* Ajusta el tamaño de las flechas según sea necesario */
+}

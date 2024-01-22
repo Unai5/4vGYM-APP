@@ -1,0 +1,15 @@
+<header>
+    <app-header></app-header>
+</header>
+
+<section id="activities" class="mt-4" *ngIf="showActivities">
+    <app-activities></app-activities>
+</section>
+
+<section id="monitors" *ngIf="showMonitors">
+    <app-monitors></app-monitors>
+</section>
+
+<footer>
+    <app-tabs id="footerTabs" (clickActivities)="clickActivitiesApp()" (clickMonitors)="clickMonitorsApp()"></app-tabs>
+</footer>

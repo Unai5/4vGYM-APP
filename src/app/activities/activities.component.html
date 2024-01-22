@@ -1,0 +1,133 @@
+<div class="row">
+    <!--Calendario a continuación: -->
+    <div class="col-md-4 col-12">
+      <app-calendar (dateChanged)="selectedDate = $event; updateActivities(); ifDateIsChanged();"></app-calendar>
+
+    </div>
+    
+
+    <div class="col-md-5 col-12 mt-5 text-center">
+      <!-- DatePicker con flechas para avanzar y retroceder días. -->
+      <div class="row">
+        <app-date-display [selectedDate]="selectedDate" (selectedChanged)="ifDateIsChanged()" (dateBack)="goBack()" (dateAdvance)="advance()"></app-date-display>
+      </div>
+      
+      <div class="row">
+        <div class="col-2 mt-4">
+          <div class="row">10:00 AM</div>
+          <div class="row">11:30 AM</div>
+        </div>
+        <div class="col-9">
+          <ng-container *ngIf="mostrarCasilla[0]; else casillaVacia">
+            <app-casilla-actividad (abrirFormularioEvent)="abrirFormularioModificar($event)" [actividad]="activity1" [activitiesComponent]="actComponent"></app-casilla-actividad>
+          </ng-container>
+          <ng-template #casillaVacia>
+            <app-casilla-vacia [cuadroId]="1" (abrirFormularioEvent)="abrirFormularioDesdeCasilla($event)"></app-casilla-vacia>
+          </ng-template>
+          
+        </div> 
+        <div class="col-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 mt-4">
+          <div class="row">1:30 PM</div>
+          <div class="row">3:00 PM</div>
+        </div>
+        <div class="col-9">
+          <ng-container *ngIf="mostrarCasilla[1]; else casillaVacia">
+            <app-casilla-actividad (abrirFormularioEvent)="abrirFormularioModificar($event)" [actividad]="activity2" [activitiesComponent]="actComponent"></app-casilla-actividad>
+          </ng-container>
+          <ng-template #casillaVacia>
+            <app-casilla-vacia [cuadroId]="2" (abrirFormularioEvent)="abrirFormularioDesdeCasilla($event)"></app-casilla-vacia>
+          </ng-template>
+          
+        </div> 
+        <div class="col-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 mt-4">
+          <div class="row">5:30 PM</div>
+          <div class="row">7:00 PM</div>
+        </div>
+        <div class="col-9">
+          <ng-container *ngIf="mostrarCasilla[2]; else casillaVacia">
+            <app-casilla-actividad (abrirFormularioEvent)="abrirFormularioModificar($event)" [actividad]="activity3" [activitiesComponent]="actComponent"></app-casilla-actividad>
+          </ng-container>
+          <ng-template #casillaVacia>
+            <app-casilla-vacia [cuadroId]="3" (abrirFormularioEvent)="abrirFormularioDesdeCasilla($event)"></app-casilla-vacia>
+          </ng-template>
+          
+        </div> 
+        <div class="col-1"></div>
+      </div>
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<form id="dataForm" *ngIf="mostrarFormulario" class="border rounded p-3 form-inline" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="activityType" class="form-label">Tipo de Actividad</label>
+    <select class="form-select" id="activityType" name="activityType" [(ngModel)]="selectedActivityType">
+      <option *ngFor="let activityType of activityTypes" [value]="activityType.name">{{ activityType.name }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="monitor1" class="form-label">Monitor 1</label>
+    <select class="form-select" id="monitor1" name="monitor1" [(ngModel)]="selectedMonitor1Create">
+      <option *ngFor="let monitor of monitors" [value]="monitor.id">{{ monitor.name }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="monitor2" class="form-label">Monitor 2</label>
+    <select class="form-select" id="monitor2" name="monitor2" [(ngModel)]="selectedMonitor2Create">
+      <option value="-1" >Ninguno</option>
+      <option *ngFor="let monitor of monitors" [value]="monitor.id">{{ monitor.name }}</option>
+    </select>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <button type="submit" class="btn btn-primary col-3">Enviar</button>
+    <div class="col-2"></div>
+    <button type="button" class="btn btn-secondary col-3" (click)="cancelar()">Cancelar</button>
+    <div class="col-2"></div>
+  </div>
+</form>
+
+<form id="modifyForm" *ngIf="mostrarFormularioModify" class="border rounded p-3 form-inline" (ngSubmit)="onSubmitModify()">
+  <div class="mb-3">
+    <label for="activityType" class="form-label">Tipo de Actividad</label>
+    <select class="form-select" id="activityTypeModify" name="activityType" [(ngModel)]="selectedActivityType">
+      <option *ngFor="let activityType of activityTypes" [value]="activityType.name">{{ activityType.name }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="monitor1" class="form-label">Monitor 1</label>
+    <select class="form-select" id="monitor1Modify" name="monitor1Modify" [(ngModel)]="selectedMonitor1">
+      <option *ngFor="let monitor of monitors" [ngValue]="monitor">{{ monitor.name }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="monitor2" class="form-label">Monitor 2</label>
+    <select class="form-select" id="monitor2Modify" name="monitor2Modify" [(ngModel)]="selectedMonitor2">
+      <option value="-1" >Ninguno</option>
+      <option *ngFor="let monitor of monitors" [ngValue]="monitor">{{ monitor.name }}</option>
+    </select>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <button type="submit" class="btn btn-primary col-3">Enviar</button>
+    <div class="col-2"></div>
+    <button type="button" class="btn btn-secondary col-3" (click)="cancelar()">Cancelar</button>
+    <div class="col-2"></div>
+  </div>
+</form>
+
+
+

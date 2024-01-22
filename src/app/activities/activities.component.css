@@ -1,0 +1,12 @@
+#dataForm, #modifyForm{
+    width: 500px;
+    position: absolute;
+    background-color: white;
+    top: calc(50vh - 250px);
+    left: calc(50vw - 250px);
+}
+.btn{
+    background-color: red !important;
+    border: none;
+    text-align: center;
+}

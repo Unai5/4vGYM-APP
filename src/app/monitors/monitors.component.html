@@ -1,0 +1,76 @@
+
+
+    <div class="search-container">
+        <input type="text" name="searchTerm" id="searchTerm" placeholder="🔍" [(ngModel)]="searchTerm" (input)="updateVisible()">
+    </div>
+    
+    <div class="add-container">
+        <img src="../../assets/img/add.jpg" alt="Add" (click)="openModal()">
+    </div>
+    
+    <!-- Modal -->
+        <div *ngIf="isModalOpen" class="custom-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <form (submit)="addOrUpdateMonitor()">
+                    <div class="modal-header">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <div class="modal-body">
+                        <img src="/src/assets/img/avatar.png" alt="Descripción de la imagen">
+                        <label for="newNombre">Name:</label>
+                        <input type="text" [(ngModel)]="newMonitor.nombre" id="newNombre" name="newNombre">
+        
+                        <label for="newEmail">Email:</label>
+                        <input type="email" [(ngModel)]="newMonitor.email" id="newEmail" name="newEmail">
+        
+                        <label for="newTelefono">Phone:</label>
+                        <input type="tel" [(ngModel)]="newMonitor.telefono" id="newTelefono" name="newTelefono">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="submit-btn">Accept</button>
+                        <button type="button" class="cancel-btn" (click)="closeModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    <!-- Display Monitors -->
+    <div *ngIf="filteredMonitors && filteredMonitors.length > 0" class="monitor-container">
+        <div class="carousel-container">
+            <div class="carousel-cards" [style.transform]="'translateX(' + currentIndex * -33.33 + '%)'">
+                <div *ngFor="let monitor of slicedMonitors" class="card monitor-card">
+                    <div class="edit-btn" (click)="loadMonitor(monitor)">
+                        <img src="../../assets/img/lapiz.png" alt="Editar">
+                    </div>
+                    <div class="delete-btn" (click)="removeMonitor(monitor.id)">
+                        <img src="../../assets/img/papelera.png" alt="Eliminar">
+                    </div>
+                    
+                    <div class="info-container">
+                        <img src="../../assets/img/avatar.png" alt="Descripción de la imagen">
+                        <div class="name">{{ monitor.nombre }}</div>
+                        <div class="email"><a href="mailto:{{ monitor.email }}">{{ monitor.email }}</a></div>
+                        <div class="phone"><a href="tel:+34{{ monitor.telefono }}">{{ monitor.telefono }}</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- No Monitors Message -->
+        <div *ngIf="!monitors || monitors.length === 0" class="no-monitors-message">
+            <p class="error-text">Oops!</p>
+            <p>No monitors available at the moment.</p>
+        </div>
+    </div>
+    
+    <div class="carousel-controls">
+        <button class="carousel-control" (click)="prev()">
+            <img src="../../assets/img/flechaAtras.png" alt="Previous">
+        </button>
+        <button class="carousel-control" (click)="next()">
+            <img src="../../assets/img/flechaAdelante.png" alt="Next">
+        </button>
+    </div>
+    
+    

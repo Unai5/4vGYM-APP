@@ -1,0 +1,19 @@
+<ul class="nav nav-tabs row">
+  
+    <div class="col-6">
+      <li class="nav-item" [ngClass]="{ 'active-tab': activeTab === 'actividades' }">
+        <a class="nav-link" (click)="changeTab('actividades')" href="#">
+          <img src="../../assets/img/calendario.png" alt="Imagen de actividades">
+          ACTIVIDADES
+        </a>
+      </li>
+    </div>
+    <div class="col-6">
+      <li class="nav-item" [ngClass]="{ 'active-tab': activeTab === 'monitores' }">
+        <a class="nav-link" (click)="changeTab('monitores')" href="#">
+          <img src="../../assets/img/avatar.png" alt="Imagen de monitores">
+          MONITORES
+        </a>
+      </li>
+    </div>
+</ul>
