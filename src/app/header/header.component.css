@@ -5,9 +5,10 @@ header {
 h1 {
     color: #D35D5D;
     font-weight: 350;
-    font-size: 26px;
+    font-size: 8vh;
 }
 img {
     max-width: 80px;
     max-height: 80px;
+    margin-left: 20px;
 }

@@ -21,5 +21,14 @@ import { MonitorsComponent } from './monitors/monitors.component';
 })
 export class AppComponent {
   constructor() {}
-  activeTab: string = 'actividades';
+  showActivities: boolean = true;
+  showMonitors: boolean = false;
+  clickActivitiesApp() {
+    this.showActivities = true;
+    this.showMonitors = false;
+  }
+  clickMonitorsApp() {
+    this.showActivities = false;
+    this.showMonitors = true;
+  }
 }
