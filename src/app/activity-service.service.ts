@@ -16,10 +16,10 @@ export class ActivityService {
       },
       monitors: [
         {
-          id: 2,
-          name: 'Marta',
-          email: 'marta@gmail.com',
-           telephone: '222222222'
+          id: 1,
+          name: 'Juan',
+          email: 'juanillo@gmail.com',
+           telephone: '666666666'
           }
         ],
         date: "11/1/2024, 13:30:00",
@@ -55,14 +55,14 @@ export class ActivityService {
       monitors: [
         {
           id: 1,
-          name: 'Anne',
-          email: 'annegorria@gmail.com', 
-          telephone: '666666666'
+          name: 'Maria',
+          email: 'maria@maria.com', 
+          telephone: '333333333'
         },
         {
           id: 2,
-          name: 'Susana',
-          email: 'morenitos@gmail.com',
+          name: 'Pedro',
+          email: 'pedrete@gmail.com',
            telephone: '222222222'
           }
         ],
@@ -101,6 +101,14 @@ export class ActivityService {
 
   public addActivity(activity: IActivity) {
     this.activities.push(activity);
+  }
+
+  public modifyActivity(activity: IActivity) {
+    this.activities.forEach((activityFor) => {
+      if (activityFor.id == activity.id) {
+        activityFor = activity;
+      }
+    });
   }
 
 }

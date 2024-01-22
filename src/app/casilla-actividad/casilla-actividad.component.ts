@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivityService, IActivity } from '../activity-service.service';
 import { IMonitor } from '../monitors-service.service';
 import { CommonModule } from '@angular/common';
@@ -13,12 +13,15 @@ import { ActivitiesComponent } from '../activities/activities.component';
 export class CasillaActividadComponent {
   constructor(private activityService: ActivityService) { }
 
+  @Input() cuadroId: number | undefined;
+  @Output() abrirFormularioEvent = new EventEmitter<number>();
+  public modify(): void{
+    this.abrirFormularioEvent.emit(this.actividad?.id || -1);
+  }
+
   public delete(): void{
     this.activityService.removeActivity(this.actividad?.id || 0);
     this.activitiesComponent.ifDateIsChanged();
-  }
-  public modify(): void{
-
   }
   @Input() actividad: IActivity | undefined;
   @Input() activitiesComponent!: ActivitiesComponent;
@@ -31,6 +34,13 @@ export class CasillaActividadComponent {
       this.monitors = this.actividad.monitors || [];
       this.type = this.actividad.type.name || '';
       this.numberOfMonitors = this.actividad.type.numberOfMonitors || 0;
+      if (this.actividad == undefined) {
+        this.type = 'BodyPump';
+      } else {
+        this.type = this.actividad.type.name || '';
+      }
+      
+
     }
   }
 }
