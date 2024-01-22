@@ -1,2 +1,12 @@
 # 4vGYM-APP
-Web application to manage the gym activities and monitors.
+Aplicación para gestionar el gimnasio, sus actividades, monitores y tipos de actividad.
+
+Hemos realizado este proyecto entre Unai Vildarraz Tous y Alex Meleiro Gómez.
+
+Unai Vildarraz: 
+  - Tabs y navegación.
+  - Sección actividades.
+
+Alex:
+  - Header.
+  - Sección monitores.
